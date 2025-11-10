@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "736837565219",
+    "project_id": "nutriapp-baa6e",
+    "storage_bucket": "nutriapp-baa6e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736837565219:android:f3b98e8f6c3786def5aa96",
+        "android_client_info": {
+          "package_name": "com.example.nutri_ai_food_calorie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYGhv0qiGOGYzQbmr0Ov1aL_2wabfvY4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

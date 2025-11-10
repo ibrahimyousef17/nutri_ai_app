@@ -1,0 +1,60 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutri_ai_food_calorie/presentation/auth/cubit/auth_view_model.dart';
+import 'package:nutri_ai_food_calorie/presentation/auth/forget_password/forget_password_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/auth/login/login_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/auth/reset_password/reset_password_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/auth/verification/verification_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/home/home_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/home/notification/notification_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/onboarding_screen/onboarding_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/splash_screen/splash_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/utils/app_theme.dart';
+import 'package:nutri_ai_food_calorie/data/data_base/shared_pref/shared_preference.dart';
+
+import 'presentation/auth/register/register_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await SharedPref.getInstance().init();
+  runApp(BlocProvider(
+    create: (context) => AuthViewModel(),
+    child: MyApp(),
+  ));
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+        designSize: const Size(428, 926),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        // Use builder only if you need to use library outside ScreenUtilInit context
+        builder: (_, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.appTheme,
+            initialRoute: LoginScreen.routeName,
+            routes: {
+              SplashScreen.routeName: (context) => SplashScreen(),
+              OnboardingScreen.routeName: (context) => OnboardingScreen(),
+              LoginScreen.routeName: (context) => LoginScreen(),
+              RegisterScreen.routeName: (context) => RegisterScreen(),
+              VerificationScreen.routeName: (context) => VerificationScreen(),
+              NotificationScreen.routeName: (context) => NotificationScreen(),
+              ForgetPasswordScreen.routeName: (context) =>
+                  ForgetPasswordScreen(),
+              ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
+              HomeScreen.routeName: (context) => HomeScreen(),
+            },
+          );
+        });
+  }
+}
+
