@@ -6,7 +6,6 @@ import 'package:nutri_ai_food_calorie/domain/di.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/cubit/auth_view_model.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/login/cubit/login_screen_view_model.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/login/cubit/login_states.dart';
-import 'package:nutri_ai_food_calorie/presentation/auth/verification/verification_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/widget/item_button_auth.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/widget/item_text_form_field.dart';
 import 'package:nutri_ai_food_calorie/presentation/home/home_screen.dart';
@@ -19,7 +18,10 @@ import '../register/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = 'login screen';
- var viewModel = LoginScreenViewModel(loginUseCase: injectLoginUseCase());
+  var viewModel = LoginScreenViewModel(
+      loginUseCase: injectLoginUseCase(),
+      loginWithGoogleUseCase: injectLoginWithGoogleUseCase(),
+      loginWithFacebookUseCase: injectLoginWithFacebookUseCase());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +40,10 @@ class LoginScreen extends StatelessWidget {
       Future.delayed(Duration(seconds: 1));
 
       Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-    }
-  },
+    } else if (state is UserCancelledErrorState) {
+            Navigator.of(context).pop();
+          }
+        },
   child: Container(
         padding: EdgeInsets.all(20.w),
         child: SingleChildScrollView(
@@ -126,13 +130,13 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 30.h,),
               ItemButtonAuth(buttonText: 'Continue with Google', iconPath: AppAssets.google_icon ,onPressed: (){
                 //todo: continue with google
-                Navigator.of(context).pushNamed(VerificationScreen.routeName);
-              },),
+                    viewModel.loginWithGoogle();
+                  },),
               SizedBox(height: 20.h,),
               ItemButtonAuth(buttonText: 'Continue with Facebook', iconPath: AppAssets.facebook_icon ,onPressed: (){
                 //todo: continue with facebook
-                Navigator.of(context).pushNamed(VerificationScreen.routeName);
-              },),
+                    viewModel.loginWithFacebook();
+                  },),
               SizedBox(height: 80.h,),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(

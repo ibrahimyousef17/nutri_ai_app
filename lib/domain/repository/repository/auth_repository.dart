@@ -8,4 +8,8 @@ abstract class AuthRepository{
   Future<bool> saveUserInShared(UserEntity userEntity);
   Either<Failures,UserEntity> getUserFromShared();
   Future<bool> clearUser();
+
+  Future<Either<Failures, UserEntity>> loginWithGoogle();
+
+  Future<Either<Failures, UserEntity>> loginWithFacebook();
 }

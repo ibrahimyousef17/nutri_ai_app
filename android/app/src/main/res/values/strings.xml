@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">nutri_ai_food_calorie</string>
+    <string name="facebook_app_id">821542947424011</string>
+    <string name="fb_login_protocol_scheme">fb821542947424011</string>
+    <string name="facebook_client_token">057d7e747f2c8b696eb68f85de296d60</string>
+
+
+</resources>

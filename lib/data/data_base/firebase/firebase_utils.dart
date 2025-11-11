@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nutri_ai_food_calorie/data/model/user_dto.dart';
 import 'package:nutri_ai_food_calorie/domain/entity/failures.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class FirebaseUtils{
 
@@ -124,6 +124,9 @@ class FirebaseUtils{
     if(connectivityResult == ConnectivityResult.mobile || connectivityResult ==ConnectivityResult.wifi){
       try{
         final LoginResult loginResult = await FacebookAuth.instance.login();
+        if (loginResult.status != LoginStatus.success) {
+          return Left(UserCancelledError(errorMessage: 'user cancel'));
+        }
         // Create a credential from the access token
         final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
 
@@ -131,7 +134,7 @@ class FirebaseUtils{
         var userCredential = await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
         if(userCredential.user==null){ return Left(ServerError(errorMessage: 'SomeThing went wrong please login again'));}
         var userDto = UserDto(id: userCredential.user!.uid, email: userCredential.user!.email ??'', userName: userCredential.user!.displayName??'');
-        storeUserToFireStore(userDto);
+        await storeUserToFireStore(userDto);
         return Right(userDto);
       }catch(e){
         return Left(ServerError(errorMessage: e.toString()));

@@ -16,3 +16,5 @@ class LoginSuccessState extends LoginStates{
   UserEntity userEntity ;
   LoginSuccessState({required this.userEntity});
 }
+
+class UserCancelledErrorState extends LoginStates {}

@@ -52,4 +52,22 @@ class AuthRepositoryImpl implements AuthRepository{
     // TODO: implement saveUserInShared
     return authLocalDataSource.saveUserInShared(userEntity);
   }
+
+  @override
+  Future<Either<Failures, UserEntity>> loginWithFacebook() async {
+    var either = await authRemoteDataSource.loginWithFacebook();
+    return either.fold((l) => Left(l), (r) {
+      saveUserInShared(r);
+      return Right(r);
+    });
+  }
+
+  @override
+  Future<Either<Failures, UserEntity>> loginWithGoogle() async {
+    var either = await authRemoteDataSource.loginWithGoogle();
+    return either.fold((l) => Left(l), (r) {
+      saveUserInShared(r);
+      return Right(r);
+    });
+  }
 }

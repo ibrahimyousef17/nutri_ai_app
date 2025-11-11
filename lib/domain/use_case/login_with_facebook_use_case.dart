@@ -3,12 +3,12 @@ import 'package:nutri_ai_food_calorie/domain/entity/failures.dart';
 import 'package:nutri_ai_food_calorie/domain/entity/user_entity.dart';
 import 'package:nutri_ai_food_calorie/domain/repository/repository/auth_repository.dart';
 
-class LoginWithGoogleUseCase{
+class LoginWithFacebookUseCase {
   AuthRepository authRepository;
 
-  LoginWithGoogleUseCase({required this.authRepository});
+  LoginWithFacebookUseCase({required this.authRepository});
 
   Future<Either<Failures, UserEntity>> invoke() {
-    return authRepository.loginWithGoogle();
+    return authRepository.loginWithFacebook();
   }
 }

@@ -11,6 +11,8 @@ import 'package:nutri_ai_food_calorie/domain/repository/repository/splash_reposi
 import 'package:nutri_ai_food_calorie/domain/use_case/get_user_from_local_use_case.dart';
 import 'package:nutri_ai_food_calorie/domain/use_case/go_login_or_boarding_use_case.dart';
 import 'package:nutri_ai_food_calorie/domain/use_case/login_use_case.dart';
+import 'package:nutri_ai_food_calorie/domain/use_case/login_with_facebook_use_case.dart';
+import 'package:nutri_ai_food_calorie/domain/use_case/login_with_google_use_case.dart';
 import 'package:nutri_ai_food_calorie/domain/use_case/register_use_case.dart';
 import 'package:nutri_ai_food_calorie/domain/use_case/set_go_login_use_case.dart';
 
@@ -60,4 +62,12 @@ GoLoginOrOnboardingUseCase injectGoLoginOrOnboardingUseCase(){
 }
 GetUserFromLocalUseCase injectGetUserFromLocalUseCase(){
   return GetUserFromLocalUseCase(authRepository: injectAuthRepository());
+}
+
+LoginWithGoogleUseCase injectLoginWithGoogleUseCase() {
+  return LoginWithGoogleUseCase(authRepository: injectAuthRepository());
+}
+
+LoginWithFacebookUseCase injectLoginWithFacebookUseCase() {
+  return LoginWithFacebookUseCase(authRepository: injectAuthRepository());
 }
