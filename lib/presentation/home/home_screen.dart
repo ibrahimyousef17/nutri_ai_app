@@ -7,18 +7,14 @@ import 'notification/notification_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = 'home screen';
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: GestureDetector(
           onTap: (){
-            _scaffoldKey.currentState!.openDrawer();
           },
           child: Row(
             children: [
@@ -64,7 +60,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Container(),
     );
   }
 }

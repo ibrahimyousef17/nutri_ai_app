@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutri_ai_food_calorie/domain/di.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/forget_password/cubit/forget_password_screen_view_model.dart';
+import 'package:nutri_ai_food_calorie/presentation/auth/forget_password/cubit/forget_password_states.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/login/login_screen.dart';
-import 'package:nutri_ai_food_calorie/presentation/auth/reset_password/reset_password_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/utils/dialog_utils.dart';
 
 import '../../utils/app_color.dart';
 import '../widget/item_text_form_field.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   static const String routeName = 'forget password screen';
-  var viewModel = ForgetPasswordScreenViewModel();
+  var viewModel = ForgetPasswordScreenViewModel(
+      forgetPasswordUseCase: injectForgetPasswordUseCase());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +35,26 @@ class ForgetPasswordScreen extends StatelessWidget {
                 }, child: Icon(Icons.arrow_back_ios,size: 20.sp,color: AppColor.whiteColor,)),
           )
       ),
-
-      body: Container(
-        padding: EdgeInsets.all(20.w),
+      body: BlocListener<ForgetPasswordScreenViewModel, ForgetPasswordStates>(
+        bloc: viewModel,
+        listener: (context, state) {
+          if (state is ForgetPasswordLoadingState) {
+            DialogUtils.showLoading(context);
+          } else if (state is ForgetPasswordErrorState) {
+            DialogUtils.hideLoading(context);
+            DialogUtils.showMessage(
+                context: context, title: 'Error', message: state.errorMsg);
+          } else {
+            DialogUtils.hideLoading(context);
+            DialogUtils.showMessage(
+                context: context,
+                title: 'Success',
+                message:
+                    'Password reset link sent! \n please check your email');
+          }
+        },
+        child: Container(
+          padding: EdgeInsets.all(20.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -79,8 +100,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                 onPressed: (){
                   if(viewModel.formKey.currentState!.validate()){
                     //todo: forgot password
-                    Navigator.of(context).pushNamed(ResetPasswordScreen.routeName);
-                  }
+                      viewModel.forgetPassword();
+                    }
                 },
                 child:Text('Send Reset Link',style: Theme.of(context).textTheme.titleMedium,) ),
             SizedBox(height: 24.h,),
@@ -96,6 +117,7 @@ class ForgetPasswordScreen extends StatelessWidget {
             )
           ],
         ),
+      ),
       ),
     );
   }

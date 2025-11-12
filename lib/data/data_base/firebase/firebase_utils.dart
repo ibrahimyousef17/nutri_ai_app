@@ -117,7 +117,6 @@ class FirebaseUtils{
     }
   }
 
-
   Future<Either<Failures,UserDto>> signInWithFacebook()async{
     var connectivityResult = await Connectivity().checkConnectivity() ;
 
@@ -141,6 +140,22 @@ class FirebaseUtils{
       }
     }else{
       return Left(NetworkError(errorMessage: 'Please check your internet'));
+    }
+  }
+
+  Future<Either<Failures, void>> forgetPassword(String email) async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi) {
+      try {
+        await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+        return const Right(null);
+      } catch (e) {
+        return Left(ServerError(errorMessage: e.toString()));
+      }
+    } else {
+      return Left(NetworkError(errorMessage: 'please check your internet'));
     }
   }
 

@@ -8,6 +8,7 @@ import 'package:nutri_ai_food_calorie/domain/repository/data_source/splash_local
 import 'package:nutri_ai_food_calorie/domain/repository/repository/auth_repository.dart';
 import 'package:nutri_ai_food_calorie/domain/repository/repository/onboarding_repository.dart';
 import 'package:nutri_ai_food_calorie/domain/repository/repository/splash_repository.dart';
+import 'package:nutri_ai_food_calorie/domain/use_case/forget_password_use_case.dart';
 import 'package:nutri_ai_food_calorie/domain/use_case/get_user_from_local_use_case.dart';
 import 'package:nutri_ai_food_calorie/domain/use_case/go_login_or_boarding_use_case.dart';
 import 'package:nutri_ai_food_calorie/domain/use_case/login_use_case.dart';
@@ -70,4 +71,8 @@ LoginWithGoogleUseCase injectLoginWithGoogleUseCase() {
 
 LoginWithFacebookUseCase injectLoginWithFacebookUseCase() {
   return LoginWithFacebookUseCase(authRepository: injectAuthRepository());
+}
+
+ForgetPasswordUseCase injectForgetPasswordUseCase() {
+  return ForgetPasswordUseCase(authRepository: injectAuthRepository());
 }

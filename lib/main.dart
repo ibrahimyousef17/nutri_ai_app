@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutri_ai_food_calorie/data/data_base/shared_pref/shared_preference.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/cubit/auth_view_model.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/forget_password/forget_password_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/login/login_screen.dart';
@@ -12,7 +13,6 @@ import 'package:nutri_ai_food_calorie/presentation/home/notification/notificatio
 import 'package:nutri_ai_food_calorie/presentation/onboarding_screen/onboarding_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/splash_screen/splash_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/utils/app_theme.dart';
-import 'package:nutri_ai_food_calorie/data/data_base/shared_pref/shared_preference.dart';
 
 import 'presentation/auth/register/register_screen.dart';
 
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: AppTheme.appTheme,
-            initialRoute: LoginScreen.routeName,
+            initialRoute: SplashScreen.routeName,
             routes: {
               SplashScreen.routeName: (context) => SplashScreen(),
               OnboardingScreen.routeName: (context) => OnboardingScreen(),

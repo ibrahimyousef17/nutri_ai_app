@@ -39,8 +39,9 @@ class LoginScreen extends StatelessWidget {
       AuthViewModel.getProvider(context).setUser(state.userEntity);
       Future.delayed(Duration(seconds: 1));
 
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-    } else if (state is UserCancelledErrorState) {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                HomeScreen.routeName, (route) => false);
+          } else if (state is UserCancelledErrorState) {
             Navigator.of(context).pop();
           }
         },

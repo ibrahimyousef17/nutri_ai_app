@@ -27,4 +27,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
   Future<Either<Failures, UserEntity>> loginWithGoogle() {
     return firebaseUtils.signInWithGoogle();
   }
+
+  @override
+  Future<Either<Failures, void>> forgetPassword(String email) {
+    return firebaseUtils.forgetPassword(email);
+  }
 }

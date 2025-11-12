@@ -10,4 +10,6 @@ abstract class AuthRemoteDataSource{
   Future<Either<Failures, UserEntity>> loginWithGoogle();
 
   Future<Either<Failures, UserEntity>> loginWithFacebook();
+
+  Future<Either<Failures, void>> forgetPassword(String email);
 }
