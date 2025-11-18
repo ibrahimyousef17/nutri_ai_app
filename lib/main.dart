@@ -11,6 +11,16 @@ import 'package:nutri_ai_food_calorie/presentation/auth/verification/verificatio
 import 'package:nutri_ai_food_calorie/presentation/home/home_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/home/notification/notification_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/onboarding_screen/onboarding_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/change_password/change_password_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/favorite/favorite_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/more_settings/help/help_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/more_settings/more_settings_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/more_settings/privacy_and_policy/privacy_and_policy_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/more_settings/terms_and_condition/terms_and_condition_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/notifications_settings/notification_settings_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/payment_method_settings/payment_method_settings_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/profile/profile_screen.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/settings_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/splash_screen/splash_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/utils/app_theme.dart';
 
@@ -52,6 +62,21 @@ class MyApp extends StatelessWidget {
                   ForgetPasswordScreen(),
               ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
               HomeScreen.routeName: (context) => HomeScreen(),
+              SettingsScreen.routeName: (context) => SettingsScreen(),
+              ProfileScreen.routeName: (context) => ProfileScreen(),
+              ChangePasswordScreen.routeName: (context) =>
+                  ChangePasswordScreen(),
+              NotificationSettingsScreen.routeName: (context) =>
+                  NotificationSettingsScreen(),
+              PaymentMethodSettingsScreen.routeName: (context) =>
+                  PaymentMethodSettingsScreen(),
+              FavoriteScreen.routeName: (context) => FavoriteScreen(),
+              MoreSettingsScreen.routeName: (context) => MoreSettingsScreen(),
+              TermsAndConditionScreen.routeName: (context) =>
+                  TermsAndConditionScreen(),
+              PrivacyAndPolicyScreen.routeName: (context) =>
+                  PrivacyAndPolicyScreen(),
+              HelpScreen.routeName: (context) => HelpScreen(),
             },
           );
         });

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/reset_password/cubit/reset_password_view_model.dart';
 
 import '../../utils/app_color.dart';
-import '../widget/item_text_form_field.dart';
+import '../../utils/item_text_form_field.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   static const String routeName = 'reset password screen';

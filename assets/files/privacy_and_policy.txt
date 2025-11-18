@@ -1,0 +1,41 @@
+#Last Updated: 12 June,2024
+
+
+Thank you for trusting NutriAI. Your privacy is
+important to us. This Privacy Policy explains how us.
+collects, uses, and protects your personal
+information when you use the NutriAI mobile application.
+
+
+By using NutriAI, you agree to be bound by these Terms.
+If you do not agree with any part of the Terms,
+please do not access or use the App.
+
+
+#1. How We Use Your Data
+
+We use the collected information to:
+##Personalize your diet and calorie tracking experience
+
+##Offer AI-powered meal suggestions and insights
+
+##Track your progress and health goals
+
+##Improve app functionality and user experience
+
+##Communicate with you (e.g., notifications, updates)
+
+
+#2. How We Share Your Information
+
+We do not sell your personal data.
+We may share limited data with:
+
+##Service providers
+     (for hosting, analytics, or messaging)
+
+##Third-party integrations
+    (e.g., Google Fit, Apple Health, if you authorize them)
+
+##Legal authorities if required by law or to
+     protect our rights

@@ -8,7 +8,7 @@ import 'package:nutri_ai_food_calorie/presentation/auth/login/login_screen.dart'
 import 'package:nutri_ai_food_calorie/presentation/utils/dialog_utils.dart';
 
 import '../../utils/app_color.dart';
-import '../widget/item_text_form_field.dart';
+import '../../utils/item_text_form_field.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   static const String routeName = 'forget password screen';
