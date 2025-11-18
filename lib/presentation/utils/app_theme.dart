@@ -21,7 +21,12 @@ class AppTheme {
      fontSize: 17.sp,
      fontWeight: FontWeight.w400,
      color: AppColor.whiteColor
-   )
-   )
+   )),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+      )
  );
 }
