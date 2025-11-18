@@ -10,7 +10,7 @@ import 'package:nutri_ai_food_calorie/presentation/home/home_screen.dart';
 import '../../utils/app_color.dart';
 import '../../utils/dialog_utils.dart';
 import '../cubit/auth_view_model.dart';
-import '../widget/item_text_form_field.dart';
+import '../../utils/item_text_form_field.dart';
 
 class RegisterScreen extends StatelessWidget {
   static const String routeName = 'register screen';

@@ -8,4 +8,13 @@ class AppAssets{
   static const String facebook_icon  = 'assets/images/facebook_icon.png' ;
   static const String notificationImage  = 'assets/images/notification_image.png' ;
 
+  static const String defaultPerson = 'assets/images/default_person.png';
+
+  static const String applePay = 'assets/images/apple_pay.png';
+
+  static const String googlePay = 'assets/images/google_pay.png';
+
+  static const String visaPay = 'assets/images/visa_pay.png';
+
+  static const String favoriteImage = 'assets/images/favorite_image.png';
 }

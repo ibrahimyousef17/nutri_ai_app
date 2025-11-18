@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/cubit/auth_view_model.dart';
+import 'package:nutri_ai_food_calorie/presentation/settings/settings_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/utils/app_color.dart';
 
 import 'notification/notification_screen.dart';
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         title: GestureDetector(
           onTap: (){
+            Navigator.of(context).pushNamed(SettingsScreen.routeName);
           },
           child: Row(
             children: [

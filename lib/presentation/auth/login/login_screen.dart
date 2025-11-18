@@ -7,7 +7,7 @@ import 'package:nutri_ai_food_calorie/presentation/auth/cubit/auth_view_model.da
 import 'package:nutri_ai_food_calorie/presentation/auth/login/cubit/login_screen_view_model.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/login/cubit/login_states.dart';
 import 'package:nutri_ai_food_calorie/presentation/auth/widget/item_button_auth.dart';
-import 'package:nutri_ai_food_calorie/presentation/auth/widget/item_text_form_field.dart';
+import 'package:nutri_ai_food_calorie/presentation/utils/item_text_form_field.dart';
 import 'package:nutri_ai_food_calorie/presentation/home/home_screen.dart';
 import 'package:nutri_ai_food_calorie/presentation/utils/app_assets.dart';
 import 'package:nutri_ai_food_calorie/presentation/utils/app_color.dart';
